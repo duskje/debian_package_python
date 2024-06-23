@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "debian-package-python"
+version = "0.1.0"
+description = ""
+authors = ["David Oscanoa <duskje@protonmail.com>"]
+readme = "README.md"
+packages = [
+    {"include" = "debian-package-python"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
