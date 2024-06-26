@@ -1,0 +1,18 @@
+id: org.flatpak.debian_package_python
+runtime: org.freedesktop.Platform
+runtime-vesion: '23.08'
+sdk: org.freedesktop.Sdk
+modules:
+  - generated-poetry-sources.json
+  - name: application
+    buildsystem: simple
+    build-commands:
+      - mv main.py ${FLATPAK_DEST}/main.py
+      - install -Dm755 ${FLATPAK_DEST}/bin/run
+    soruces:
+      - type: file
+        path: debian_package_python/main.py
+      - type: script
+        dest-filename: run
+        commands:
+          - python ${FLATPAK_DEST}/app/main.py
